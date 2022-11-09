@@ -2,35 +2,31 @@ import javax.swing.*;
 import java.awt.*;
 
 //vores bane
-public class Grid {
+public class Grid extends JPanel {
 
-    public void paint(Graphics g){
-        //Override paint method in superclass
-        
-        super.paint(g);
+    // variables for layout
+    // originX og originY, defines how long we start from the screen until the box
+    static int originX = 0;
+    static int originY = 0;
+    // size of boxes
+    static int cellSide = 50;
+    // rows and columns
+    static int columns = 16;
+    static int rows = 16;
 
-        //Get current JFrame width
-        int frameWidth=getSize().width;
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
 
-        //Get current JFrame height
-        int frameHeight=getSize().height;
-
-        int temp=0;
-
-        //Draw vertical grid line with spacing between each line equal to 10 pixels
-        while(temp<frameWidth)
-        {
-        temp=temp+10;
-        g.drawLine(temp,0,temp,frameHeight);
+        // draws the vertical lines
+        for (int i = 0; i < rows + 1; i++) {
+            g.drawLine(originX, originY + i * cellSide, originX + columns * cellSide, originY + i * cellSide);
         }
 
-        temp=0;
-
-        //Draw horizontal grid line with spacing between each line equal to 10 pixels
-        while(temp<frameHeight)
-        {
-        temp=temp+10;
-        g.drawLine(0,temp,frameWidth,temp);
+        // draws the horizontal lines
+        for (int i = 0; i < columns + 1; i++) {
+            g.drawLine(originX + i * cellSide, originY, originX + i * cellSide, originY + rows * cellSide);
         }
+
     }
+
 }
