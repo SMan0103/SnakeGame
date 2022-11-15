@@ -16,6 +16,7 @@ public class App {
         int heightFrame = 828;
 
         // define a frame
+
         JFrame frame = new JFrame();
         // JPanel panel = new JPanel();
         // JLabel label = new JLabel("du sejler mere end joe");
@@ -34,7 +35,7 @@ public class App {
 
         // frame.add(callSquare);
 
-        // mad();
+        nytMad();
         // making closing the window possible
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -49,23 +50,33 @@ public class App {
         g.fillRect(x, y, 50, 50);
         g.setColor(Color.BLACK);
     }
+public class madlavning{
+ int apple_x;
+ int apple_y;
+ int DOT_SIZE = 
 
-    public static void nytmad() {
-        int xi, yi, x = 10, y = x, w = 30, h = w, offset = 2;
-        int grid = 13, many = grid * grid;
+    public static void checkmad() {
+        int dots;
+        if ((x[0] == apple_x) && (y[0] == apple_y)) {
 
-        color col1 = (Color.RED);
-        color col2 = (Color.blue);
-        boolean switchcol = true;
-        PImage myPicture;
-
-        boolean[] apple = new boolean[];
-        BufferedImage myPicture = ImageIO.read(new File("Apple snakegame.png"));
-        JLabel picLabel = new JLabel(new ImageIcon(myPicture));
-        add(picLabel);
-        apple[(int) Random(many)] = true;
+        dots++;
+        nytMad();
     }
 
+    public static void nytMad() {
+
+        int r = (int) (Math.random() * RAND_POS);
+        apple_x = ((r * DOT_SIZE));
+
+        r = (int) (Math.random() * RAND_POS);
+        apple_y = ((r * DOT_SIZE));
+
+        // BufferedImage myPicture = ImageIO.read(new File("Apple snakegame.png"));
+        // JLabel picLabel = new JLabel(new ImageIcon(myPicture));
+        // myPicture.add(picLabel);
+
+    }
+}
     public static void definePositionalArrays() {
         int æ = 0;
         int[] posXArr = new int[256];
