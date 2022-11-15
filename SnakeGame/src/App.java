@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.*;
+
 import java.awt.image.BufferedImage;
 import java.io.*;
 import javax.imageio.*;
@@ -7,9 +9,14 @@ import java.lang.Math.*;
 
 public class App {
 
+    private Image apple;
+
     public static void main(String[] args) throws Exception {
 
-        definePositionalArrays();
+        int[] posXArr = new int[256];
+        int[] posYArr = new int[256];
+
+        definePositionalArrays(posXArr, posYArr);
 
         // variables needed in defining frames
         int widthFrame = 801;
@@ -35,13 +42,18 @@ public class App {
 
         // frame.add(callSquare);
 
-        nytMad();
+        nytMad(posXArr, posYArr);
         // making closing the window possible
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // initializing the window
         frame.setVisible(true);
+        apple();
 
+    }
+
+    public void apple() {
+        loadImages();
     }
 
     public static void drawSquare(Graphics g, int x, int y) {
@@ -51,38 +63,21 @@ public class App {
         g.setColor(Color.BLACK);
     }
 
-    public class madlavning {
-        int apple_x;
-        int apple_y;
- int DOT_SIZE =
+    public static void nytMad(int[] posXArr, int[] posYArr) {
 
-    public static void checkmad() {
-        int dots;
-        if ((x[0] == apple_x) && (y[0] == apple_y)) {
+        int r_x = (int) (Math.random() * (posXArr.length - 0 + 1) + 0);
+        int r_y = (int) (Math.random() * (posYArr.length - 0 + 1) + 1);
 
-        dots++;
-        nytMad();
+        int madX = posXArr[r_x];
+        int madY = posYArr[r_y];
+
+        // drawMad(madX, madY);
+
     }
 
-        public static void nytMad() {
-
-            int r = (int) (Math.random() * RAND_POS);
-            apple_x = ((r * DOT_SIZE));
-
-            r = (int) (Math.random() * RAND_POS);
-            apple_y = ((r * DOT_SIZE));
-
-            // BufferedImage myPicture = ImageIO.read(new File("Apple snakegame.png"));
-            // JLabel picLabel = new JLabel(new ImageIcon(myPicture));
-            // myPicture.add(picLabel);
-
-        }
-    }
-
-    public static void definePositionalArrays() {
+    public static void definePositionalArrays(int[] posXArr, int[] posYArr) {
         int æ = 0;
-        int[] posXArr = new int[256];
-        int[] posYArr = new int[256];
+
         for (int å = 0; å < posXArr.length; å++) {
 
             if (æ == 16) {
@@ -108,5 +103,11 @@ public class App {
 
         }
 
+    }
+
+    public abstract void loadImages() {
+        ImageIcon iih = new ImageIcon(
+                "/Users/emilpedersen/Documents/GitHub/SnakeGame/SnakeGame/src/Apple snakegame.png");
+        apple = iih.getImage();
     }
 }

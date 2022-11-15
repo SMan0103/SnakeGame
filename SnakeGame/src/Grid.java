@@ -1,5 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.*;
+import java.io.*;
+import javax.imageio.*;
 
 //vores bane
 public class Grid extends JPanel {
@@ -38,21 +41,3 @@ public class Grid extends JPanel {
     }
 
 }
-
-public class CustomActivity extends Jframe {
-
-    private AnotherClass mClass;
-
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mClass = new AnotherClass(this);
-    }
-
-    //Implement each method you want to use.
-    public String getInfoFromOtherClass()
-    {
-       return mClass.getInfoFromOtherClass();
-    }
-}
-
-frame.add(new JLabel(newImageIcon("/Users/emilpedersen/Documents/GitHub/SnakeGame/SnakeGame/src/Applesnakegame.png")));
