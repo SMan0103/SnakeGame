@@ -27,6 +27,32 @@ public class Grid extends JPanel {
             g.drawLine(originX + i * cellSide, originY, originX + i * cellSide, originY + rows * cellSide);
         }
 
+        // draw the first color
+        for (int i = 0 + cellSide; i < columns * cellSide; i++) {
+            g.setColor(Color.RED);
+            g.drawRect(i, 0, cellSide, cellSide);
+            g.fillRect(i * 50, 0, cellSide, cellSide);
+            // g.setColor(Color.BLACK);
+        }
+
     }
 
 }
+
+public class CustomActivity extends Jframe {
+
+    private AnotherClass mClass;
+
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mClass = new AnotherClass(this);
+    }
+
+    //Implement each method you want to use.
+    public String getInfoFromOtherClass()
+    {
+       return mClass.getInfoFromOtherClass();
+    }
+}
+
+frame.add(new JLabel(newImageIcon("/Users/emilpedersen/Documents/GitHub/SnakeGame/SnakeGame/src/Applesnakegame.png")));

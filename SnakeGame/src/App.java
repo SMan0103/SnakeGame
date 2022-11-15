@@ -50,10 +50,11 @@ public class App {
         g.fillRect(x, y, 50, 50);
         g.setColor(Color.BLACK);
     }
-public class madlavning{
- int apple_x;
- int apple_y;
- int DOT_SIZE = 
+
+    public class madlavning {
+        int apple_x;
+        int apple_y;
+ int DOT_SIZE =
 
     public static void checkmad() {
         int dots;
@@ -63,20 +64,21 @@ public class madlavning{
         nytMad();
     }
 
-    public static void nytMad() {
+        public static void nytMad() {
 
-        int r = (int) (Math.random() * RAND_POS);
-        apple_x = ((r * DOT_SIZE));
+            int r = (int) (Math.random() * RAND_POS);
+            apple_x = ((r * DOT_SIZE));
 
-        r = (int) (Math.random() * RAND_POS);
-        apple_y = ((r * DOT_SIZE));
+            r = (int) (Math.random() * RAND_POS);
+            apple_y = ((r * DOT_SIZE));
 
-        // BufferedImage myPicture = ImageIO.read(new File("Apple snakegame.png"));
-        // JLabel picLabel = new JLabel(new ImageIcon(myPicture));
-        // myPicture.add(picLabel);
+            // BufferedImage myPicture = ImageIO.read(new File("Apple snakegame.png"));
+            // JLabel picLabel = new JLabel(new ImageIcon(myPicture));
+            // myPicture.add(picLabel);
 
+        }
     }
-}
+
     public static void definePositionalArrays() {
         int æ = 0;
         int[] posXArr = new int[256];
