@@ -48,12 +48,12 @@ public class App {
 
         // initializing the window
         frame.setVisible(true);
-        apple();
+       // apple();
 
     }
 
     public void apple() {
-        loadImages();
+     //   loadImages();
     }
 
     public static void drawSquare(Graphics g, int x, int y) {
@@ -105,9 +105,9 @@ public class App {
 
     }
 
-    public abstract void loadImages() {
+    /*public abstract void loadImages() {
         ImageIcon iih = new ImageIcon(
                 "/Users/emilpedersen/Documents/GitHub/SnakeGame/SnakeGame/src/Apple snakegame.png");
         apple = iih.getImage();
-    }
+    }*/
 }
