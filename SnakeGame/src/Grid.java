@@ -1,43 +1,45 @@
 import javax.swing.*;
-import java.awt.*;
-import java.awt.image.*;
-import java.io.*;
-import javax.imageio.*;
 
 //vores bane
-public class Grid extends JPanel {
+public class Grid extends JFrame {
 
-    // variables for layout
-    // originX og originY, defines how long we start from the screen until the box
-    static int originX = 0;
-    static int originY = 0;
-    // size of boxes
-    static int cellSide = 50;
-    // rows and columns
-    static int columns = 16;
-    static int rows = 16;
-
-    public void paintComponent(Graphics g) {
-        super.paintComponent(g);
-
-        // draws the vertical lines
-        for (int i = 0; i < rows + 1; i++) {
-            g.drawLine(originX, originY + i * cellSide, originX + columns * cellSide, originY + i * cellSide);
-        }
-
-        // draws the horizontal lines
-        for (int i = 0; i < columns + 1; i++) {
-            g.drawLine(originX + i * cellSide, originY, originX + i * cellSide, originY + rows * cellSide);
-        }
-
-        // draw the first color
-        for (int i = 0 + cellSide; i < columns * cellSide; i++) {
-            g.setColor(Color.RED);
-            g.drawRect(i, 0, cellSide, cellSide);
-            g.fillRect(i * 50, 0, cellSide, cellSide);
-            // g.setColor(Color.BLACK);
-        }
-
+    public Grid() {
+        drawGrid();
     }
 
+    public static void drawGrid() {
+        // variables needed in defining frames
+        int widthFrame = 816;
+        int heightFrame = 837;
+
+        // define a frame
+        JFrame frame = new JFrame();
+
+        // size of frame
+        frame.setSize(widthFrame, heightFrame);
+
+        // set location of where window will spawn
+        frame.setLocation(100, 100);
+
+        frame.setLayout(null);
+        // defining the picture location
+        JLabel background = new JLabel(
+                new ImageIcon("SnakeGame/images/gridImage.png"));
+
+        // using jlayered panel
+        JLayeredPane layeredPanel = new JLayeredPane();
+        layeredPanel.add(background, JLayeredPane.DEFAULT_LAYER); // default_layer is layer 1
+
+        frame.add(layeredPanel);
+
+        // making closing the window possible
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        // initializing the window
+        frame.set
+        frame.setVisible(true);
+        // frame.setResizable(false);
+
+        // new drawAppleTest(frame);
+    }
 }
