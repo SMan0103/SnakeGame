@@ -8,7 +8,7 @@ public class drawAppleTest {
 
     public void drawApple(JFrame frame) {
         JLabel apple = new JLabel(
-                new ImageIcon("SnakeGame/images/appleSprite.png"));
+                new ImageIcon("SnakeGame/Image/appleSprite.png"));
 
         JLayeredPane layeredPanel = new JLayeredPane();
         layeredPanel.add(apple, JLayeredPane.PALETTE_LAYER); // palette_layer is layer 2

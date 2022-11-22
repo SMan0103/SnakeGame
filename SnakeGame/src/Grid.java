@@ -1,7 +1,11 @@
+
+
 import javax.swing.*;
 
-//vores bane
-public class Grid extends JFrame {
+public class Grid {
+
+    public static JFrame frame;
+    public static JLayeredPane layeredPane;
 
     public Grid() {
         drawGrid();
@@ -9,37 +13,36 @@ public class Grid extends JFrame {
 
     public static void drawGrid() {
         // variables needed in defining frames
-        int widthFrame = 816;
-        int heightFrame = 837;
+        int widthFrame = 800;
+        int heightFrame = 835;
 
         // define a frame
-        JFrame frame = new JFrame();
+        frame = new JFrame();
 
         // size of frame
         frame.setSize(widthFrame, heightFrame);
 
         // set location of where window will spawn
-        frame.setLocation(100, 100);
+        frame.setLocation(400, 0);
 
-        frame.setLayout(null);
         // defining the picture location
-        JLabel background = new JLabel(
-                new ImageIcon("SnakeGame/images/gridImage.png"));
+        JLabel background = new JLabel(new ImageIcon("SnakeGame/Image/gridImage.png"));
+        // defining where the picture starts and its width and height
+        background.setBounds(-8, -16, widthFrame, heightFrame);
 
-        // using jlayered panel
-        JLayeredPane layeredPanel = new JLayeredPane();
-        layeredPanel.add(background, JLayeredPane.DEFAULT_LAYER); // default_layer is layer 1
-
-        frame.add(layeredPanel);
+        // adding layers, and defining them
+        layeredPane = new JLayeredPane();
+        layeredPane.add(background, JLayeredPane.DEFAULT_LAYER); // layer 0
+        frame.add(layeredPane);
 
         // making closing the window possible
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // initializing the window
-        frame.set
         frame.setVisible(true);
-        // frame.setResizable(false);
+        frame.setResizable(false);
 
-        // new drawAppleTest(frame);
+        // calling apple drawer
+
     }
 }

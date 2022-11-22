@@ -1,75 +1,38 @@
-import java.awt.*;
-import java.awt.image.ImageObserver;
+
+
 import javax.swing.*;
 
-public class drawAppleClass extends JLabel {
-    public Image apple;
+public class drawAppleClass {
 
-    public int madX;
-    public int madY;
+    public int[] applePos = new int[2];
+    //offset for making apple fit in the grid
+    public static int offset = 5;
+    public boolean appleDrawn = false;
 
-    int[] posXArr = new int[256];
-    int[] posYArr = new int[256];
-
-    public drawAppleClass() {
-        definePositionalArrays(posXArr, posYArr);
-        nytMad(posXArr, posYArr, getGraphics());
-        drawApple(madX, madY, getGraphics());
+    public drawAppleClass(){
+        drawApple();
     }
 
-    public void drawApple(int madX, int madY, Graphics g) {
-        ImageIcon iia = new ImageIcon("SnakeGame/images/appleSprite.png");
-        apple = iia.getImage();
+    public void drawApple() {
+        //defining apple file location
+        JLabel apple = new JLabel(new ImageIcon("SnakeGame/Image/appleSprite.png"));
 
-        g.drawImage(apple, madX, madY, (ImageObserver) this);
-    }
+        //TODO - make it spawn random
+        if (!appleDrawn) {
+            applePos[0] = ((int) (Math.random() * (16 - 0 + 1) - 0)) * 50;
+            applePos[1] = ((int) (Math.random() * (16 - 0 + 1) - 0)) * 50;
 
-    public void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        nytMad(posXArr, posYArr, getGraphics());
-        System.out.println("goddag");
-        drawApple(madX, madY, getGraphics());
+            //defining apple size and location on board
+            apple.setBounds(applePos[0]-offset, applePos[1], 50, 50);
 
-    }
-
-    public void nytMad(int[] posXArr, int[] posYArr, Graphics g) {
-
-        int r_x = (int) (Math.random() * (255 - 0 + 1) + 0);
-        int r_y = (int) (Math.random() * (255 - 0 + 1) + 0);
-
-        int madX = posXArr[r_x];
-        int madY = posYArr[r_y];
-
-        drawApple(madX, madY, g);
-
-    }
-
-    public static void definePositionalArrays(int[] posXArr, int[] posYArr) {
-        int æ = 0;
-
-        for (int å = 0; å < posXArr.length; å++) {
-
-            if (æ == 16) {
-                æ = 0;
-                posXArr[å] = æ * 50;
-                æ++;
-            } else {
-                posXArr[å] = æ * 50;
-                æ++;
-            }
-
-        }
-        for (int å = 0; å < posYArr.length; å++) {
-
-            if (æ == 16) {
-                æ = 0;
-                posYArr[å] = æ * 50;
-                æ++;
-            } else {
-                posYArr[å] = æ * 50;
-                æ++;
-            }
+            appleDrawn = true;
         }
 
+        //adding layers
+        Grid.layeredPane.add(apple, JLayeredPane.PALETTE_LAYER); //layer 1
+        Grid.frame.add(Grid.layeredPane);
+
+        //setting visibility true
+        Grid.frame.setVisible(true);
     }
 }
