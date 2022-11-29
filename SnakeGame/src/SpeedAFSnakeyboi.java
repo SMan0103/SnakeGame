@@ -2,14 +2,14 @@
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class SpeedAFSnakeyboi{
+public class SpeedAFSnakeyboi {
 
     public static int rotation = 1;
     public static int posx = 0;
     public static int posy = 0;
     // 1 is up, 2 is down, 3 is right, 4 is left
 
-    public void keyPressed(KeyEvent e) {
+    public static void keyPressed(KeyEvent e) {
 
         System.out.println("doodoo");
 

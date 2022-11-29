@@ -20,6 +20,7 @@ public class drawAppleClass {
         JLabel apple = new JLabel(new ImageIcon("SnakeGame/Image/appleSprite.png"));
 
         // TODo - make it spawn random
+
         if (!appleDrawn) {
             applePos[0] = ((int) (Math.random() * (16 - 0 + 1) - 0)) * 50;
             applePos[1] = ((int) (Math.random() * (16 - 0 + 1) - 0)) * 50;
@@ -29,12 +30,12 @@ public class drawAppleClass {
 
             appleDrawn = true;
         }
-
         // adding layers
         Grid.layeredPane.add(apple, JLayeredPane.PALETTE_LAYER); // layer 1
         Grid.frame.add(Grid.layeredPane);
 
         // setting visibility true
         Grid.frame.setVisible(true);
+
     }
 }
